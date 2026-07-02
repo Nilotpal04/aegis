@@ -6,9 +6,9 @@ from app.storage.memory import InMemoryStorage
 from app.core.sliding_window_state import SlidingWindowState
 from app.algorithms.sliding_window import SlidingWindow
 
-storage = InMemoryStorage()
+storage = InMemoryStorage[SlidingWindowState]()
 
-limiter = FixedWindow(
+limiter = SlidingWindow(
     limit=5, 
     window_size=60, 
     storage=storage,
