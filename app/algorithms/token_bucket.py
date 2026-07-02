@@ -17,7 +17,7 @@ class TokenBucket(RateLimiterAlgorithm):
         
     def allow(self, key: str) -> bool:
             current_time = time.time()
-
+            
             state = self.storage.get(key)
             
             if state is None:
