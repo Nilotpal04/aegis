@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from app.algorithms.fixed_window import FixedWindow
 from app.middleware.rate_limit import RateLimitMiddleware
 from app.storage.memory import InMemoryStorage
+from app.core.sliding_window_state import SlidingWindowState
+from app.algorithms.sliding_window import SlidingWindow
 
 storage = InMemoryStorage()
 

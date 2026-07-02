@@ -1,15 +1,16 @@
 from abc import ABC, abstractmethod
-from app.core.state import WindowState
-from typing import Optional
+from typing import Generic, TypeVar
 
-class Storage(ABC):
+State = TypeVar("State")
+
+class Storage(ABC, Generic[State]):
     
     @abstractmethod
-    def get(self, key: str) -> Optional[WindowState]:
+    def get(self, key: str) -> State | None:
         """Get (count, window_start) for a give key"""
         pass
     
     @abstractmethod
-    def set(self, key: str, state: WindowState) -> None:
+    def set(self, key: str, state: State) -> None:
         """Store the state associated with a client key."""
         pass

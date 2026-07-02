@@ -4,7 +4,7 @@ from app.core.state import WindowState
 from app.storage.base import Storage
 
 class FixedWindow(RateLimiterAlgorithm):
-    def __init__(self, limit: int, window_size: int, storage: Storage):
+    def __init__(self, limit: int, window_size: int, storage: Storage[WindowState]):
         self.limit = limit
         self.window_size = window_size
         self.storage = storage

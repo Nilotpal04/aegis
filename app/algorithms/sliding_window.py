@@ -10,31 +10,28 @@ class SlidingWindow(RateLimiterAlgorithm):
         self,
         limit: int,
         window_size: int,
-        storage: Storage
+        storage: Storage[SlidingWindowState]
     ):
         self.limit = limit
         self.window_size = window_size
         self.storage = storage
         
     def allow(self, key: str) -> bool:
-        
         current_time = time.time()
         state = self.storage.get(key)
-        
+
         if state is None:
             state = SlidingWindowState(requests=deque())
-            self.storage.set(key, state)
-            return True
-        
+
         timestamps = state.requests
         cutoff = current_time - self.window_size
-        
+
         while timestamps and timestamps[0] <= cutoff:
             timestamps.popleft()
-        
+
         if len(timestamps) >= self.limit:
             return False
-        
+
         timestamps.append(current_time)
         self.storage.set(key, state)
-        return True                
+        return True
