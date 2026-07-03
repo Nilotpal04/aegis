@@ -31,15 +31,15 @@ class RedisStorage(Storage[State], Generic[State]):
             field_name = field.name
             field_type = field.type
             
-            raw_value = data.get(field_name.encode('utf-8'))
+            raw_value = data.get(field_name)
+
             if raw_value is not None:
-                value_str = raw_value.decode('utf-8')
                 if field_type == int:
-                    converted[field_name] = int(value_str)
+                    converted[field_name] = int(raw_value)
                 elif field_type == float:
-                    converted[field_name] = float(value_str)
+                    converted[field_name] = float(raw_value)
                 else:
-                    converted[field_name] = value_str
+                    converted[field_name] = raw_value
                     
         return self.state_type(**converted)
                     
