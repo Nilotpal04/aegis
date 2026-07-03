@@ -5,7 +5,7 @@ from app.middleware.rate_limit import RateLimitMiddleware
 from app.storage.memory import InMemoryStorage
 from app.core.sliding_window_state import SlidingWindowState
 from app.algorithms.sliding_window import SlidingWindow
-
+from app.algorithms.redis_fixed_window import RedisFixedWindow
 from redis import Redis
 
 from app.storage.redis import RedisStorage
@@ -22,10 +22,10 @@ storage = RedisStorage(
     state_type=WindowState,
 )
 
-limiter = FixedWindow(
+limiter = RedisFixedWindow(
     limit=5, 
     window_size=60, 
-    storage=storage,
+    client=client,
 )
 
 app = FastAPI()
