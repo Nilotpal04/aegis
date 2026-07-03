@@ -1,5 +1,5 @@
 from redis import Redis
-from app.algorithms.redis_fixed_window  import RedisFixedWindow
+from app.redis.fixed_window  import RedisFixedWindow
 import time
 
 client = Redis(

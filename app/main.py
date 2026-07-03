@@ -5,7 +5,7 @@ from app.middleware.rate_limit import RateLimitMiddleware
 from app.storage.memory import InMemoryStorage
 from app.core.sliding_window_state import SlidingWindowState
 from app.algorithms.sliding_window import SlidingWindow
-from app.algorithms.redis_fixed_window import RedisFixedWindow
+from app.redis.fixed_window import RedisFixedWindow
 from redis import Redis
 
 from app.storage.redis import RedisStorage
