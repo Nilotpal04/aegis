@@ -1,4 +1,4 @@
-# 🛡️ Aegis
+# Aegis
 
 A production-grade distributed rate limiting library built from scratch using Python, Redis, and Lua.
 
