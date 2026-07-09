@@ -1,31 +1,16 @@
 from fastapi import FastAPI
 
-from app.algorithms.fixed_window import FixedWindow
+from app.aegis import Aegis
+from app.backends.redis_backend import RedisBackend
 from app.middleware.rate_limit import RateLimitMiddleware
-from app.storage.memory import InMemoryStorage
-from app.core.sliding_window_state import SlidingWindowState
-from app.algorithms.sliding_window import SlidingWindow
-from app.redis.fixed_window import RedisFixedWindow
-from redis import Redis
 
-from app.storage.redis import RedisStorage
-from app.core.state import WindowState
+backend = RedisBackend()
 
-client = Redis(
-    host="localhost",
-    port=6379,
-    decode_responses=True,
-)
-
-storage = RedisStorage(
-    client=client,
-    state_type=WindowState,
-)
-
-limiter = RedisFixedWindow(
-    limit=5, 
-    window_size=60, 
-    client=client,
+limiter = Aegis(
+    backend=backend,
+    algorithm="fixed_window",
+    limit=5,
+    window_size=60,
 )
 
 app = FastAPI()
