@@ -1,9 +1,9 @@
 from redis import Redis
 
-from app.redis.fixed_window import RedisFixedWindow
-from app.redis.sliding_window import RedisSlidingWindow
-from app.redis.token_bucket import RedisTokenBucket
-from app.redis.leaky_bucket import RedisLeakyBucket
+from aegis.redis.fixed_window import RedisFixedWindow
+from aegis.redis.sliding_window import RedisSlidingWindow
+from aegis.redis.token_bucket import RedisTokenBucket
+from aegis.redis.leaky_bucket import RedisLeakyBucket
 
 REDIS_LIMITERS = {
     "fixed_window": RedisFixedWindow,

@@ -1,16 +1,16 @@
 from redis import Redis
 
-from app.redis.base import RedisLuaAlgorithm
-class RedisFixedWindow(RedisLuaAlgorithm):
+from aegis.redis.base import RedisLuaAlgorithm
+class RedisSlidingWindow(RedisLuaAlgorithm):
     def __init__(
         self,
         limit: int,
-        window_size: int,
+        window_size: float,
         client: Redis
     ):
         super().__init__(
             client=client,
-            lua_file="fixed_window.lua"
+            lua_file="sliding_window.lua"
         )
         
         self.limit = limit

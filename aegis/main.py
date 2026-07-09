@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
-from app.aegis import Aegis
-from app.backends.redis_backend import RedisBackend
-from app.middleware.rate_limit import RateLimitMiddleware
+from aegis.aegis import Aegis
+from aegis.backends.redis_backend import RedisBackend
+from aegis.middleware.rate_limit import RateLimitMiddleware
 
 backend = RedisBackend()
 

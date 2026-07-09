@@ -1,5 +1,5 @@
 from typing import Generic, TypeVar
-from app.storage.base import Storage
+from aegis.storage.base import Storage
 
 State = TypeVar("State")
 class InMemoryStorage(Storage[State], Generic[State]):

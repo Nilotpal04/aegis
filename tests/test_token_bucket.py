@@ -1,7 +1,7 @@
 import time
-from app.storage.memory import InMemoryStorage
-from app.algorithms.token_bucket import TokenBucket
-from app.core.token_bucket_state import TokenBucketState
+from aegis.storage.memory import InMemoryStorage
+from aegis.algorithms.token_bucket import TokenBucket
+from aegis.core.token_bucket_state import TokenBucketState
 
 def test_first_request_is_allowed():
     storage = InMemoryStorage[TokenBucketState]()

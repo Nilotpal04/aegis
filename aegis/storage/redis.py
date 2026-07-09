@@ -2,7 +2,7 @@ from dataclasses import asdict, fields
 from typing import Generic, TypeVar
 
 from redis import Redis
-from app.storage.base import Storage
+from aegis.storage.base import Storage
 
 State = TypeVar("State")
 

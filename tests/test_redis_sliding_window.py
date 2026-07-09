@@ -1,6 +1,6 @@
 import time
 from redis import Redis
-from app.redis.sliding_window import RedisSlidingWindow
+from aegis.redis.sliding_window import RedisSlidingWindow
 
 client = Redis(host="localhost", port=6379, decode_responses=True)
 

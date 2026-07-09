@@ -1,9 +1,9 @@
-from app.storage.memory import InMemoryStorage
+from aegis.storage.memory import InMemoryStorage
 
-from app.algorithms.fixed_window import FixedWindow
-from app.algorithms.sliding_window import SlidingWindow
-from app.algorithms.token_bucket import TokenBucket
-from app.algorithms.leaky_bucket import LeakyBucket
+from aegis.algorithms.fixed_window import FixedWindow
+from aegis.algorithms.sliding_window import SlidingWindow
+from aegis.algorithms.token_bucket import TokenBucket
+from aegis.algorithms.leaky_bucket import LeakyBucket
 
 MEMORY_LIMITERS = {
     "fixed_window": FixedWindow,

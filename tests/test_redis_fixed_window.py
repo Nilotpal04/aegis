@@ -1,5 +1,5 @@
 from redis import Redis
-from app.redis.fixed_window  import RedisFixedWindow
+from aegis.redis.fixed_window  import RedisFixedWindow
 import time
 
 client = Redis(

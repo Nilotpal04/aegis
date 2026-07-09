@@ -1,6 +1,6 @@
 import time
-from app.algorithms.fixed_window import FixedWindow
-from app.storage.memory import InMemoryStorage
+from aegis.algorithms.fixed_window import FixedWindow
+from aegis.storage.memory import InMemoryStorage
 
 def test_first_request_is_allowed():
     storage = InMemoryStorage()

@@ -1,6 +1,6 @@
 import time
 from redis import Redis
-from app.redis.leaky_bucket import RedisLeakyBucket
+from aegis.redis.leaky_bucket import RedisLeakyBucket
 
 client = Redis(
     host="localhost",

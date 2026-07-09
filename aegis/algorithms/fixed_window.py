@@ -1,7 +1,7 @@
 import time
-from app.algorithms.base import RateLimiterAlgorithm
-from app.core.state import WindowState
-from app.storage.base import Storage
+from aegis.algorithms.base import RateLimiterAlgorithm
+from aegis.core.state import WindowState
+from aegis.storage.base import Storage
 
 class FixedWindow(RateLimiterAlgorithm):
     def __init__(self, limit: int, window_size: int, storage: Storage[WindowState]):

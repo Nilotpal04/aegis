@@ -2,7 +2,7 @@ from fastapi import Request
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import JSONResponse
 
-from app.algorithms.base import RateLimiterAlgorithm
+from aegis.algorithms.base import RateLimiterAlgorithm
 
 class RateLimitMiddleware(BaseHTTPMiddleware):
     def __init__(self, app, limiter: RateLimiterAlgorithm):

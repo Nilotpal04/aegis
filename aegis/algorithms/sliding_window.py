@@ -1,9 +1,9 @@
 import time
 from collections import deque
 
-from app.algorithms.base import RateLimiterAlgorithm
-from app.core.sliding_window_state import SlidingWindowState
-from app.storage.base import Storage
+from aegis.algorithms.base import RateLimiterAlgorithm
+from aegis.core.sliding_window_state import SlidingWindowState
+from aegis.storage.base import Storage
 
 class SlidingWindow(RateLimiterAlgorithm):
     def __init__(

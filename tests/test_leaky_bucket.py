@@ -1,7 +1,7 @@
 import time
-from app.storage.memory import InMemoryStorage
-from app.algorithms.leaky_bucket import LeakyBucket
-from app.core.leaky_bucket_state import LeakyBucketState
+from aegis.storage.memory import InMemoryStorage
+from aegis.algorithms.leaky_bucket import LeakyBucket
+from aegis.core.leaky_bucket_state import LeakyBucketState
 
 def test_first_request_is_allowed():
     storage = InMemoryStorage[LeakyBucketState]()

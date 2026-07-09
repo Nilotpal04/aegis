@@ -1,8 +1,8 @@
 import time
 
-from app.algorithms.base import RateLimiterAlgorithm
-from app.core.leaky_bucket_state import LeakyBucketState
-from app.storage.base import Storage
+from aegis.algorithms.base import RateLimiterAlgorithm
+from aegis.core.leaky_bucket_state import LeakyBucketState
+from aegis.storage.base import Storage
 
 class LeakyBucket(RateLimiterAlgorithm):
     def __init__(

@@ -1,7 +1,7 @@
 import time
-from app.algorithms.sliding_window import SlidingWindow
-from app.core.sliding_window_state import SlidingWindowState
-from app.storage.memory import InMemoryStorage
+from aegis.algorithms.sliding_window import SlidingWindow
+from aegis.core.sliding_window_state import SlidingWindowState
+from aegis.storage.memory import InMemoryStorage
 
 storage = InMemoryStorage[SlidingWindowState]()
 

@@ -1,8 +1,8 @@
 import time
 
-from app.algorithms.base import RateLimiterAlgorithm
-from app.core.token_bucket_state import TokenBucketState
-from app.storage.base import Storage
+from aegis.algorithms.base import RateLimiterAlgorithm
+from aegis.core.token_bucket_state import TokenBucketState
+from aegis.storage.base import Storage
 
 class TokenBucket(RateLimiterAlgorithm):
     def __init__(

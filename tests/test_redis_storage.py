@@ -1,7 +1,7 @@
 from redis import Redis
 
-from app.core.state import WindowState
-from app.storage.redis import RedisStorage
+from aegis.core.state import WindowState
+from aegis.storage.redis import RedisStorage
 
 client = Redis(
     host="localhost",
