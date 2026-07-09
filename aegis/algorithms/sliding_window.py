@@ -5,17 +5,15 @@ from aegis.algorithms.base import RateLimiterAlgorithm
 from aegis.core.sliding_window_state import SlidingWindowState
 from aegis.storage.base import Storage
 
+
 class SlidingWindow(RateLimiterAlgorithm):
     def __init__(
-        self,
-        limit: int,
-        window_size: int,
-        storage: Storage[SlidingWindowState]
+        self, limit: int, window_size: int, storage: Storage[SlidingWindowState]
     ):
         self.limit = limit
         self.window_size = window_size
         self.storage = storage
-        
+
     def allow(self, key: str) -> bool:
         current_time = time.time()
         state = self.storage.get(key)

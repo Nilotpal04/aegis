@@ -5,10 +5,7 @@ class Aegis:
         algorithm: str,
         **kwargs,
     ):
-        self.limiter = backend.create_limiter(
-            algorithm,
-            **kwargs
-        )
-            
+        self.limiter = backend.create_limiter(algorithm, **kwargs)
+
     def allow(self, key: str) -> bool:
         return self.limiter.allow(key)

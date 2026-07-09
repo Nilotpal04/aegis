@@ -28,7 +28,7 @@ last_leak = current
 
 local allowed = 0
 
-if water < capacity then
+if water + 1 <= capacity then
     water = water + 1
     allowed = 1
 end
@@ -42,10 +42,9 @@ redis.call(
     last_leak
 )
 
-redis.call(
-    "EXPIRE",
-    key,
-    math.ceil(capacity / leak_rate) + 1
-)
+if leak_rate > 0 then
+    local ttl = math.ceil(capacity / leak_rate) + 1
+    redis.call("EXPIRE", key, ttl)
+end
 
 return allowed

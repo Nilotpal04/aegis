@@ -15,10 +15,8 @@ limiter = Aegis(
 
 app = FastAPI()
 
-app.add_middleware(
-    RateLimitMiddleware,
-    limiter=limiter
-)
+app.add_middleware(RateLimitMiddleware, limiter=limiter)
+
 
 @app.get("/")
 async def home():

@@ -1,5 +1,7 @@
 import time
+
 from redis import Redis
+
 from aegis.redis.leaky_bucket import RedisLeakyBucket
 
 client = Redis(
@@ -7,6 +9,7 @@ client = Redis(
     port=6379,
     decode_responses=True,
 )
+
 
 def test_first_request_is_allowed():
     client.flushdb()

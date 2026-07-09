@@ -1,22 +1,25 @@
 import time
+
 from aegis.algorithms.sliding_window import SlidingWindow
 from aegis.core.sliding_window_state import SlidingWindowState
 from aegis.storage.memory import InMemoryStorage
 
 storage = InMemoryStorage[SlidingWindowState]()
 
+
 def test_first_request_is_allowed():
     storage = InMemoryStorage()
     limiter = SlidingWindow(limit=3, window_size=60, storage=storage)
     key = "user123"
-    
+
     result = limiter.allow(key)
 
     assert result is True
     state = storage.get(key)
     assert state is not None
     assert len(state.requests) == 1
-    
+
+
 def test_request_limit_is_enforced():
 
     storage = InMemoryStorage()
@@ -26,29 +29,31 @@ def test_request_limit_is_enforced():
     assert limiter.allow("user123") is True
     assert limiter.allow("user123") is True
     assert limiter.allow("user123") is False
-    
+
+
 def tests_window_resets_after_expiration():
-    
+
     storage = InMemoryStorage()
     limiter = SlidingWindow(limit=2, window_size=1, storage=storage)
-    
+
     assert limiter.allow("user123") is True
     assert limiter.allow("user123") is True
     assert limiter.allow("user123") is False
-    
+
     time.sleep(1.1)
-    
+
     assert limiter.allow("user123") is True
-    
+
+
 def test_users_are_rate_limited_independently():
-    
+
     storage = InMemoryStorage()
     limiter = SlidingWindow(limit=2, window_size=60, storage=storage)
-    
+
     # User A reaches the limit
     assert limiter.allow("Neel") is True
     assert limiter.allow("Neel") is True
     assert limiter.allow("Neel") is False
-    
+
     # User B should still be allowed
-    assert limiter.allow("Luna") is True 
+    assert limiter.allow("Luna") is True

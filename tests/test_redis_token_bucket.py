@@ -1,5 +1,7 @@
 import time
+
 from redis import Redis
+
 from aegis.redis.token_bucket import RedisTokenBucket
 
 client = Redis(
