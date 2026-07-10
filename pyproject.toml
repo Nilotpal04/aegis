@@ -1,15 +1,52 @@
 [project]
-name = "aegis"
+name = "aegis"  
 version = "0.1.0"
-description = "Add your description here"
+
+description = "A production-grade distributed rate limiting SDK for Python powered by Redis and Lua."
+
 readme = "README.md"
+
 requires-python = ">=3.12"
+
+license = { text = "MIT" }
+
+authors = [
+    { name = "Nilotpal Baishya" }
+]
+
+keywords = [
+    "rate-limiter",
+    "redis",
+    "lua",
+    "distributed",
+    "fastapi",
+    "backend",
+    "sdk",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries",
+]
+
 dependencies = [
     "fastapi>=0.138.2",
     "httpx>=0.28.1",
     "redis>=8.0.1",
     "uvicorn>=0.49.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/Nilotpal04/aegis"
+Repository = "https://github.com/Nilotpal04/aegis"
+Issues = "https://github.com/Nilotpal04/aegis/issues"
 
 [dependency-groups]
 dev = [
