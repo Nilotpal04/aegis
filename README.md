@@ -53,7 +53,7 @@ It provides multiple production-proven rate limiting algorithms, atomic Redis ex
 > Installation instructions will be available once Aegis is published on PyPI.
 
 ```bash
-pip install aegis
+pip install aegis-rl
 ```
 
 ### Example
