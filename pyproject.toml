@@ -1,6 +1,6 @@
 [project]
 name = "aegis-rl"  
-version = "0.1.0"
+version = "0.1.1"
 
 description = "A production-grade distributed rate limiting SDK for Python powered by Redis and Lua."
 
